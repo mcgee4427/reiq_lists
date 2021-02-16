@@ -857,8 +857,13 @@ if not os.path.exists(filePath):
 
 #print(thisday)
 
+cnxn = pyodbc.connect(r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};'
+                      r'DBQ=E:\ReIQ_fetcher.accdb;')
 
-cnxn = pyodbc.connect(r'Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=C:\Users\gmcge\Documents\GitHub\reiq_lists\ReIQ_fetcher.accdb;')
+
+#cnxn = pyodbc.connect(r'Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=C:\Users\gmcge\Documents\GitHub\reiq_lists\ReIQ_fetcher.accdb;')
+
+
 cursor = cnxn.cursor()
 sql = "SELECT * FROM tbl_ListSources"
 data = pd.read_sql(sql,con=cnxn)
@@ -866,7 +871,7 @@ data = pd.read_sql(sql,con=cnxn)
 #if not os.path.exists(directory):
 #    os.makedirs(directory)
 
-'''
+
 # clean up old files in download folder    
 for i in range(0, len(data)):
     if data['Active'].iloc[i] == True:
@@ -881,7 +886,7 @@ for i in range(0, len(data)):
     if data['Active'].iloc[i] == True:
         webbrowser.get(chrome_path).open(data['URL'].iloc[i])
 
-'''
+
 # wait for all files to download        
 for i in range(0, len(data)):
     if data['Active'].iloc[i] == True:
