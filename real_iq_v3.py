@@ -495,6 +495,8 @@ def fbProbateList(data,fileName):
             row['meta'] = meta
 
             for j, (k, v) in enumerate(row.items(), start=0):
+                if v == 'nan':
+                    v = ''
                 worksheet.write(r, j, v)
             r += 1
         except:
@@ -518,6 +520,8 @@ def fbProbateList(data,fileName):
             row['meta'] = meta
 
             for j, (k, v) in enumerate(row.items(), start=0):
+                if v == 'nan':
+                    v = ''
                 worksheet.write(r, j, v)
 
 
@@ -589,6 +593,8 @@ def fbHeirshipList(data,fileName):
             row['meta'] = meta
 
             for j, (k, v) in enumerate(row.items(), start=0):
+                if v == 'nan':
+                    v = ''
                 worksheet.write(r, j, v)
             r += 1
         except:
@@ -612,6 +618,8 @@ def fbHeirshipList(data,fileName):
             row['meta'] = meta
 
             for j, (k, v) in enumerate(row.items(), start=0):
+                if v == 'nan':
+                    v = ''
                 worksheet.write(r, j, v)
 
 
